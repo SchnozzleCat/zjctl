@@ -716,6 +716,7 @@ fn dump_screen(full: bool) -> Result<Vec<u8>, Box<dyn std::error::Error>> {
 fn run_dump_screen(path: &Path, full: bool) -> Result<(), Box<dyn std::error::Error>> {
     let mut cmd = zellij::command();
     cmd.args(["action", "dump-screen"])
+        .arg("--path")
         .arg(path)
         .stdin(std::process::Stdio::null())
         .stdout(std::process::Stdio::null())
